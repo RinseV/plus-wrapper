@@ -36,29 +36,22 @@ export class Product extends PlusObject {
             tn_maxresults: (options?.limit ?? '20').toString()
         };
         if (options?.storeId) {
-            totalQuery['tn_sid'] = options.storeId.toString();
+            totalQuery['tn_fk_storeid'] = options.storeId.toString();
         }
         if (options?.nutriscore) {
-            totalQuery['tn_nutriscore'] = options.nutriscore.map((n) => n.toString()).join(',');
+            totalQuery['tn_fk_ae-nutriscore'] = options.nutriscore.map((n) => n.toString()).join('|');
         }
         if (options?.qualityLabel) {
-            totalQuery['tn_qualitylabel'] = options.qualityLabel.map((ql) => ql.toString()).join(',');
+            totalQuery['tn_fk_ae-keurmerken'] = options.qualityLabel.map((ql) => ql.toString()).join('|');
         }
         if (options?.diet) {
-            totalQuery['tn_diet'] = options.diet.map((d) => d.toString()).join(',');
+            totalQuery['tn_fk_ae-dieet'] = options.diet.map((d) => d.toString()).join('|');
         }
         if (options?.brands) {
-            totalQuery['tn_brands'] = options.brands.join(',');
+            totalQuery['tn_fk_merk'] = options.brands.join('|');
         }
         return await this.plus.get('navigation-search', {
-            query: {
-                tn_q: productName,
-                tn_cid: (options?.cId ?? '').toString(),
-                tn_sort: (options?.sort ?? '').toString(),
-                tn_ps: (options?.ps ?? '').toString(),
-                tn_parameters: (options?.parameters ?? '').toString(),
-                tn_maxresults: (options?.limit ?? '20').toString()
-            },
+            query: totalQuery,
             ...additionalRequestOptions
         });
     }

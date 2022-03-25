@@ -26,16 +26,11 @@ describe('Plus Product', () => {
             expect(getMock).toHaveBeenCalledWith('navigation-search', {
                 query: {
                     tn_q: 'test',
-                    tn_fk_storeid: '',
                     tn_cid: '',
                     tn_sort: '',
                     tn_ps: '',
                     tn_parameters: '',
-                    tn_maxresults: '20',
-                    'tn_fk_ae-nutriscore': '',
-                    'tn_fk_ae-keurmerken': '',
-                    'tn_fk_ae-dieet': '',
-                    tn_fk_merk: ''
+                    tn_maxresults: '20'
                 }
             });
         });
@@ -58,12 +53,12 @@ describe('Plus Product', () => {
             expect(getMock).toHaveBeenCalledWith('navigation-search', {
                 query: {
                     tn_q: 'test',
-                    tn_fk_storeid: '1',
                     tn_cid: '2',
                     tn_sort: ProductSortOptions.Sales,
                     tn_ps: '3',
                     tn_parameters: 'parameters',
                     tn_maxresults: '20',
+                    tn_fk_storeid: '1',
                     'tn_fk_ae-nutriscore': Nutriscore.A + '|' + Nutriscore.B,
                     'tn_fk_ae-keurmerken': QualityLabel.BeterLeven1Star,
                     'tn_fk_ae-dieet': DietFilter.Vegan,
