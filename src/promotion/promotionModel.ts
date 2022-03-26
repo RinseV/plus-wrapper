@@ -63,7 +63,6 @@ export interface Category {
     sortOrder: number;
     categoryId: string;
     promotions: PromotionModel[];
-    caregoryId: string;
     id: string;
 }
 
