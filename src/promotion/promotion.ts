@@ -3,6 +3,10 @@ import { AdditionalRequestOptions } from '../plus';
 import { PromotionQueryModel } from './promotionModel';
 
 export class Promotion extends PlusObject {
+    /**
+     * Get promotions for given store ID
+     * @param storeId 3-digit store ID
+     */
     async getPromotionsFromStore(
         storeId: number,
         additionalRequestOptions?: AdditionalRequestOptions

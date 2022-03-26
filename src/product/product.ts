@@ -15,6 +15,10 @@ export interface ProductOptions extends PaginationOptions {
 }
 
 export class Product extends PlusObject {
+    /**
+     * Gets product for given product ID
+     * @param productId 6-digit product ID
+     */
     async getProductFromId(
         productId: number,
         additionalRequestOptions?: AdditionalRequestOptions
@@ -22,6 +26,21 @@ export class Product extends PlusObject {
         return await this.plus.get(`product/${productId}`, additionalRequestOptions);
     }
 
+    /**
+     * Gets products for given product name
+     * @param productName Query to search for
+     * @param options Query options
+     * @param options.limit Limit the number of results
+     * @param options.storeId Limit the results to a specific store
+     * @param options.cId Internal cId
+     * @param options.sort Sort the results
+     * @param options.ps Internal ps
+     * @param options.parameters Internal parameters
+     * @param options.nutriscore Limit the results to specific nutriscores
+     * @param options.qualityLabel Limit the results to specific quality labels
+     * @param options.diet Limit the results to specific diets
+     * @param options.brands Limit the results to specific brands
+     */
     async getProductsFromName(
         productName: string,
         options?: ProductOptions,

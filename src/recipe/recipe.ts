@@ -9,10 +9,22 @@ export interface RecipeOptions {
 }
 
 export class Recipe extends PlusObject {
+    /**
+     * Get recipe from given recipe ID
+     * @param recipeId UUID of the recipe
+     */
     async getRecipeFromId(recipeId: string, additionalRequestOptions?: AdditionalRequestOptions): Promise<RecipeModel> {
         return await this.plus.get(`proxy/recipes/${recipeId}`, additionalRequestOptions);
     }
 
+    /**
+     * Get recipes for given query
+     * @param recipeName Query to search for
+     * @param options Query options
+     * @param options.sort Sort the results
+     * @param options.type Limit the results to specific types
+     * @param options.cookingTime Limit the results to specific cooking times
+     */
     async getRecipesFromName(
         recipeName: string,
         options?: RecipeOptions,
