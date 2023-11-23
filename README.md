@@ -13,6 +13,8 @@
   </p>
 </div>
 
+**NOTE**: This wrapper no longer works as of November 2023 due to API changes by Plus. I will not be updating this wrapper anymore, but feel free to fork it and update it yourself.
+
 Unofficial Node.js API wrapper for the [Plus](https://www.plus.nl/).
 
 ## Installation
